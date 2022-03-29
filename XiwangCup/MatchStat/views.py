@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from models import Player, Match, Team
+from .models import Player, Match, Team
+
 
 # Create your views here.
 
@@ -20,6 +21,7 @@ def goal_list(request):
     name5 = results[4]['player_name']
     goal5 = results[4]['goal']
 
-    goal_list_return = {'name1':name1,'goal1':goal1, 'name2':name2,'goal2':goal2, 'name3':name3,'goal3':goal3, 'name4':name4,'goal4':goal4, 'name5':name5,'goal5':goal5}
+    goal_list_return = {'name1': name1, 'goal1': goal1, 'name2': name2, 'goal2': goal2, 'name3': name3, 'goal3': goal3,
+                        'name4': name4, 'goal4': goal4, 'name5': name5, 'goal5': goal5}
 
-    return render(request, 'goal_list.html', goal_list_return)
+    return render(request, "goal_list.html", locals())
