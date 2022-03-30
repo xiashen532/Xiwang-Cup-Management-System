@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="/static/images/fa.jpg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description"
+          content="SJTUFA | Table"/>
+
+    <!-- connect to domain of font files -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- optionally increase loading priority -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&display=swap">
+
+    <!-- async CSS -->
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&display=swap">
+
+    <!-- no-JS fallback -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&display=swap">
+    </noscript>
+
+    <title>上海交通大学希望杯足球赛 | 积分榜</title>
+
+    <link href="/static/css/shared.css" rel="stylesheet"/>
+    <link href="/static/css/table.css" rel="stylesheet"/>
+
+    <script src="https://kit.fontawesome.com/224f0fc815.js" crossorigin="anonymous"></script>
+    <script src="/static/js/shared.js" defer></script>
+</head>
+<body>
+<header>
+    <div class="navigation-bar flex">
+        <div class="left flex">
+            <img id="menu" src="/static/images/icon-menu.svg" alt="icon menu" onClick={menuClickHandler}/>
+            <a class="flex logo" href="./index.html">
+                <img src="/static/images/sjtufa.png" alt="logo"/>
+                <h1>SoccerLogic</h1>
+            </a>
+            <ul class="navigation-menu flex">
+                <li>
+                    <a href="./matches.html">Matches</a>
+                </li>
+                <li class="active">
+                    <a href="./table.html">Table</a>
+                </li>
+                <li>
+                    <a href="./stats.html">Statistics</a>
+                </li>
+            </ul>
+            <div class="overlay"></div>
+            <button id="menu-close-button" aria-label="Close menu button" class="flex">
+                <svg style="width: 0.896rem; height: 0.896rem; display: block;" viewBox="0 0 14 15"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+                          fillRule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="right flex">
+            <a href="#">
+                <img class="avatar" src="/static/images/fa.jpg" alt="fa"/>
+            </a>
+        </div>
+    </div>
+</header>
+<main class="container">
+    <header class="hero">
+        <h1>积分榜</h1>
+    </header>
+    <table class="card">
+        <p>
+            A组
+        </p>
+        <thead>
+        <tr>
+            <th>
+                名次
+            </th>
+            <th class="team">
+                队伍
+            </th>
+            <th>
+                <div class="full">场次</div>
+                <div class="short">Pl</div>
+            </th>
+            <th>
+                <div class="full">胜</div>
+                <div class="short">W</div>
+            </th>
+            <th>
+                <div class="full">平</div>
+                <div class="short">D</div>
+            </th>
+            <th>
+                负
+            </th>
+            <th>
+                <div class="full">积分</div>
+                <div class="short">Pts</div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                1
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_a.0.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_a.0.match }}
+            </td>
+            <td>
+                {{ table_return_a.0.win }}
+            </td>
+            <td>
+                {{ table_return_a.0.draw }}
+            </td>
+            <td>
+                {{ table_return_a.0.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_a.0.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_a.1.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_a.1.match }}
+            </td>
+            <td>
+                {{ table_return_a.1.win }}
+            </td>
+            <td>
+                {{ table_return_a.1.draw }}
+            </td>
+            <td>
+                {{ table_return_a.1.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_a.1.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_a.2.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_a.2.match }}
+            </td>
+            <td>
+                {{ table_return_a.2.win }}
+            </td>
+            <td>
+                {{ table_return_a.2.draw }}
+            </td>
+            <td>
+                {{ table_return_a.2.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_a.2.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                4
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_a.3.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_a.3.match }}
+            </td>
+            <td>
+                {{ table_return_a.3.win }}
+            </td>
+            <td>
+                {{ table_return_a.3.draw }}
+            </td>
+            <td>
+                {{ table_return_a.3.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_a.3.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_a.4.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_a.4.match }}
+            </td>
+            <td>
+                {{ table_return_a.4.win }}
+            </td>
+            <td>
+                {{ table_return_a.4.draw }}
+            </td>
+            <td>
+                {{ table_return_a.4.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_a.4.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_a.5.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_a.5.match }}
+            </td>
+            <td>
+                {{ table_return_a.5.win }}
+            </td>
+            <td>
+                {{ table_return_a.5.draw }}
+            </td>
+            <td>
+                {{ table_return_a.5.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_a.5.points }}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="card">
+        <p>
+            B组
+        </p>
+        <thead>
+        <tr>
+            <th>
+                名次
+            </th>
+            <th class="team">
+                队伍
+            </th>
+            <th>
+                <div class="full">场次</div>
+                <div class="short">Pl</div>
+            </th>
+            <th>
+                <div class="full">胜</div>
+                <div class="short">W</div>
+            </th>
+            <th>
+                <div class="full">平</div>
+                <div class="short">D</div>
+            </th>
+            <th>
+                负
+            </th>
+            <th>
+                <div class="full">积分</div>
+                <div class="short">Pts</div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                1
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_b.0.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_b.0.match }}
+            </td>
+            <td>
+                {{ table_return_b.0.win }}
+            </td>
+            <td>
+                {{ table_return_b.0.draw }}
+            </td>
+            <td>
+                {{ table_return_b.0.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_b.0.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_b.1.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_b.1.match }}
+            </td>
+            <td>
+                {{ table_return_b.1.win }}
+            </td>
+            <td>
+                {{ table_return_b.1.draw }}
+            </td>
+            <td>
+                {{ table_return_b.1.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_b.1.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_b.2.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_b.2.match }}
+            </td>
+            <td>
+                {{ table_return_b.2.win }}
+            </td>
+            <td>
+                {{ table_return_b.2.draw }}
+            </td>
+            <td>
+                {{ table_return_b.2.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_b.2.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                4
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_b.3.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_b.3.match }}
+            </td>
+            <td>
+                {{ table_return_b.3.win }}
+            </td>
+            <td>
+                {{ table_return_b.3.draw }}
+            </td>
+            <td>
+                {{ table_return_b.3.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_b.3.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_b.4.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_b.4.match }}
+            </td>
+            <td>
+                {{ table_return_b.4.win }}
+            </td>
+            <td>
+                {{ table_return_b.4.draw }}
+            </td>
+            <td>
+                {{ table_return_b.4.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_b.4.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_b.5.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_b.5.match }}
+            </td>
+            <td>
+                {{ table_return_b.5.win }}
+            </td>
+            <td>
+                {{ table_return_b.5.draw }}
+            </td>
+            <td>
+                {{ table_return_b.5.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_b.5.points }}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="card">
+        <p>
+            C组
+        </p>
+        <thead>
+        <tr>
+            <th>
+                名次
+            </th>
+            <th class="team">
+                队伍
+            </th>
+            <th>
+                <div class="full">场次</div>
+                <div class="short">Pl</div>
+            </th>
+            <th>
+                <div class="full">胜</div>
+                <div class="short">W</div>
+            </th>
+            <th>
+                <div class="full">平</div>
+                <div class="short">D</div>
+            </th>
+            <th>
+                负
+            </th>
+            <th>
+                <div class="full">积分</div>
+                <div class="short">Pts</div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                1
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_c.0.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_c.0.match }}
+            </td>
+            <td>
+                {{ table_return_c.0.win }}
+            </td>
+            <td>
+                {{ table_return_c.0.draw }}
+            </td>
+            <td>
+                {{ table_return_c.0.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_c.0.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_c.1.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_c.1.match }}
+            </td>
+            <td>
+                {{ table_return_c.1.win }}
+            </td>
+            <td>
+                {{ table_return_c.1.draw }}
+            </td>
+            <td>
+                {{ table_return_c.1.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_c.1.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_c.2.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_c.2.match }}
+            </td>
+            <td>
+                {{ table_return_c.2.win }}
+            </td>
+            <td>
+                {{ table_return_c.2.draw }}
+            </td>
+            <td>
+                {{ table_return_c.2.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_c.2.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                4
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_c.3.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_c.3.match }}
+            </td>
+            <td>
+                {{ table_return_c.3.win }}
+            </td>
+            <td>
+                {{ table_return_c.3.draw }}
+            </td>
+            <td>
+                {{ table_return_c.3.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_c.3.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_c.4.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_c.4.match }}
+            </td>
+            <td>
+                {{ table_return_c.4.win }}
+            </td>
+            <td>
+                {{ table_return_c.4.draw }}
+            </td>
+            <td>
+                {{ table_return_c.4.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_c.4.points }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6
+            </td>
+            <td class="team">
+                <a>
+                    {{ table_return_c.5.team_name }}
+                </a>
+            </td>
+            <td>
+                {{ table_return_c.5.match }}
+            </td>
+            <td>
+                {{ table_return_c.5.win }}
+            </td>
+            <td>
+                {{ table_return_c.5.draw }}
+            </td>
+            <td>
+                {{ table_return_c.5.lost }}
+            </td>
+            <td class="point">
+                {{ table_return_c.5.points }}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</main>
+<footer>
+</footer>
+</body>
+</html>

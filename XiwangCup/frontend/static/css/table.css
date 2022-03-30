@@ -1,0 +1,44 @@
+/* Main */
+main > p {
+    font-size: 25px;
+    color: #172C41FF
+}
+main > table {
+    margin-bottom: 2rem;
+}
+
+main > table tr > *.team {
+    text-align: left;
+}
+
+main > table tr > *.team * {
+    vertical-align: middle;
+}
+
+main > table tr > *.team > a {
+    display: block;
+    width: 100%;
+}
+
+main > table tbody tr {
+    font-size: 1.2rem;
+    color: var(--active-text-color);
+}
+
+main > table tbody tr > *.team {
+    font-size: 1.1rem;
+    color: var(--active-text-color);
+}
+
+main > table tr > *.point {
+    color: var(--active-text-color);
+    font-weight: bold;
+}
+
+/* ------------------- */
+/* Mobile view         */
+/* ------------------- */
+@media only screen and (max-width: 767px) {
+    main {
+    }
+}
