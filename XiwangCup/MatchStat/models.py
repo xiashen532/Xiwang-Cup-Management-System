@@ -5,11 +5,12 @@ from django.db import models
 
 class Team(models.Model):
     team_name = models.CharField('队伍名', max_length=50)  # 队伍名
-    coach = models.CharField('主教练', max_length=20)  # 主教练
     group = models.CharField('小组', max_length=100)  # 小组名
-    point = models.IntegerField('积分', default=0)  # 积分
-
-    # rank = models.IntegerField('排名', max_length=20) # 排名
+    points = models.IntegerField('积分', default=0)  # 积分
+    win = models.IntegerField('胜场', default=0)  # 胜场
+    draw = models.IntegerField('平场', default=0)  # 平场
+    lost = models.IntegerField('负场', default=0)  # 负场
+    logo_url = models.CharField('logourl', default='../static/images/fa', max_length=9999)  # logourl
 
     class Meta:
         verbose_name_plural = '队伍表'
@@ -21,16 +22,15 @@ class Team(models.Model):
 class Player(models.Model):
     # 运动员模型
     player_name = models.CharField('运动员', max_length=30)  # 运动员名字
-    # player_team = models.CharField(max_length=50) # 运动员所在队伍
     goal = models.IntegerField('进球', default=0)  # 总进球数
-    assist = models.IntegerField('助攻', default=0)  # 总助攻数
     y_card = models.IntegerField('黄牌', default=0)  # 黄牌数
     r_card = models.IntegerField('红牌', default=0)  # 红牌数
+    photo_url = models.CharField('照片url', default='../static/images/defaultphoto.png', max_length=9999)  # 照片url
 
-    team = models.ForeignKey(Team,
-                             related_name='players',
-                             on_delete=models.CASCADE,
-                             verbose_name='队伍')  # 定义外键，Team和Player是1:n
+    player_team = models.ForeignKey(Team,
+                                    related_name='players',
+                                    on_delete=models.CASCADE,
+                                    verbose_name='队伍')  # 定义外键，Team和Player是1:n
 
     class Meta:
         ordering = ['-goal']  # 按照进球数降序排序
