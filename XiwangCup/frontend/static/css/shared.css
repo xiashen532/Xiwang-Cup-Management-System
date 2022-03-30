@@ -59,10 +59,6 @@ a {
     color: inherit;
 }
 
-    a:hover, a:focus {
-        text-decoration: underline;
-    }
-
 /* ------------------- */
 /* General             */
 /* ------------------- */
@@ -80,7 +76,8 @@ body {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-family: "HuXiaoBo"
 }
 
 h2 {
@@ -597,4 +594,11 @@ main table {
                     padding-top: 1.466rem;
                     padding-bottom: 1.2rem;
                 }
+}
+
+@font-face {
+    font-family: 'HuXiaoBo';
+    src: url("胡晓波男人帮简体.ttf");
+    font-weight: normal;
+    font-style: normal;
 }
