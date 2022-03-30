@@ -3,6 +3,7 @@ main > p {
     font-size: 25px;
     color: #172C41FF
 }
+
 main > table {
     margin-bottom: 2rem;
 }
@@ -20,6 +21,13 @@ main > table tr > *.team > a {
     width: 100%;
 }
 
+main > table tr > *.team > a > img {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    display: inline-block;
+}
+
 main > table tbody tr {
     font-size: 1.2rem;
     color: var(--active-text-color);
@@ -28,6 +36,11 @@ main > table tbody tr {
 main > table tbody tr > *.team {
     font-size: 1.1rem;
     color: var(--active-text-color);
+}
+
+main > table tr > *.form {
+    display: flex;
+    justify-content: center;
 }
 
 main > table tr > *.point {

@@ -78,6 +78,100 @@ def table(request):
     return render(request, "table.html", locals())
 
 
+def id_to_team_name(num):
+    res = Team.objects.filter(id=num)
+    rtn = res[0].team_name
+    return rtn
+
+
+def id_to_logo_url(num):
+    res = Team.objects.filter(id=num)
+    rtn = res[0].logo_url
+    return rtn
+
+
+def stats(request):
+    ordergoal = list(Player.objects.order_by('-goal').values('player_name', 'player_team', 'goal', 'photo_url'))
+    orderycard = list(Player.objects.order_by('-y_card').values('player_name', 'player_team', 'y_card', 'photo_url'))
+    orderrcard = list(Player.objects.order_by('-r_card').values('player_name', 'player_team', 'r_card', 'photo_url'))
+
+    resultsgoal = [
+        {'player_name': ordergoal[0]['player_name'], 'player_team': id_to_team_name(ordergoal[0]['player_team']),
+         'goal': ordergoal[0]['goal'],
+         'photo_url': ordergoal[0]['photo_url'],
+         'logo_url': id_to_logo_url(ordergoal[0]['player_team']),
+         },
+        {'player_name': ordergoal[1]['player_name'], 'player_team': id_to_team_name(ordergoal[1]['player_team']),
+         'goal': ordergoal[1]['goal'],
+         'photo_url': ordergoal[1]['photo_url'],
+         'logo_url': id_to_logo_url(ordergoal[1]['player_team']),
+         },
+        {'player_name': ordergoal[2]['player_name'], 'player_team': id_to_team_name(ordergoal[2]['player_team']),
+         'goal': ordergoal[2]['goal'],
+         'photo_url': ordergoal[2]['photo_url'],
+         'logo_url': id_to_logo_url(ordergoal[2]['player_team']),
+         },
+        {'player_name': ordergoal[3]['player_name'], 'player_team': id_to_team_name(ordergoal[3]['player_team']),
+         'goal': ordergoal[3]['goal'],
+         'photo_url': ordergoal[3]['photo_url'],
+         'logo_url': id_to_logo_url(ordergoal[3]['player_team']),
+         },
+        {'player_name': ordergoal[4]['player_name'], 'player_team': id_to_team_name(ordergoal[4]['player_team']),
+         'goal': ordergoal[4]['goal'],
+         'photo_url': ordergoal[4]['photo_url'],
+         'logo_url': id_to_logo_url(ordergoal[4]['player_team']),
+         },
+    ]
+
+    resultsycard = [
+        {'player_name': orderycard[0]['player_name'], 'player_team': id_to_team_name(orderycard[0]['player_team']),
+         'y_card': orderycard[0]['y_card'],
+         'photo_url': orderycard[0]['photo_url'],
+         'logo_url': id_to_logo_url(orderycard[0]['player_team']), },
+        {'player_name': orderycard[1]['player_name'], 'player_team': id_to_team_name(orderycard[1]['player_team']),
+         'y_card': orderycard[1]['y_card'],
+         'photo_url': orderycard[1]['photo_url'],
+         'logo_url': id_to_logo_url(orderycard[1]['player_team']), },
+        {'player_name': orderycard[2]['player_name'], 'player_team': id_to_team_name(orderycard[2]['player_team']),
+         'y_card': orderycard[2]['y_card'],
+         'photo_url': orderycard[2]['photo_url'],
+         'logo_url': id_to_logo_url(orderycard[2]['player_team']), },
+        {'player_name': orderycard[3]['player_name'], 'player_team': id_to_team_name(orderycard[3]['player_team']),
+         'y_card': orderycard[3]['y_card'],
+         'photo_url': orderycard[3]['photo_url'],
+         'logo_url': id_to_logo_url(orderycard[3]['player_team']), },
+        {'player_name': orderycard[4]['player_name'], 'player_team': id_to_team_name(orderycard[4]['player_team']),
+         'y_card': orderycard[4]['y_card'],
+         'photo_url': orderycard[4]['photo_url'],
+         'logo_url': id_to_logo_url(orderycard[4]['player_team']), },
+    ]
+
+    resultsrcard = [
+        {'player_name': orderrcard[0]['player_name'], 'player_team': id_to_team_name(orderrcard[0]['player_team']),
+         'r_card': orderrcard[0]['r_card'],
+         'photo_url': orderrcard[0]['photo_url'],
+         'logo_url': id_to_logo_url(orderrcard[0]['player_team']), },
+        {'player_name': orderrcard[1]['player_name'], 'player_team': id_to_team_name(orderrcard[1]['player_team']),
+         'r_card': orderrcard[1]['r_card'],
+         'photo_url': orderrcard[1]['photo_url'],
+         'logo_url': id_to_logo_url(orderrcard[1]['player_team']), },
+        {'player_name': orderrcard[2]['player_name'], 'player_team': id_to_team_name(orderrcard[2]['player_team']),
+         'r_card': orderrcard[2]['r_card'],
+         'photo_url': orderrcard[2]['photo_url'],
+         'logo_url': id_to_logo_url(orderrcard[2]['player_team']), },
+        {'player_name': orderrcard[3]['player_name'], 'player_team': id_to_team_name(orderrcard[3]['player_team']),
+         'r_card': orderrcard[3]['r_card'],
+         'photo_url': orderrcard[3]['photo_url'],
+         'logo_url': id_to_logo_url(orderrcard[3]['player_team']), },
+        {'player_name': orderrcard[4]['player_name'], 'player_team': id_to_team_name(orderrcard[4]['player_team']),
+         'r_card': orderrcard[4]['r_card'],
+         'photo_url': orderrcard[4]['photo_url'],
+         'logo_url': id_to_logo_url(orderrcard[4]['player_team']), },
+    ]
+
+    return render(request, "stats.html", locals())
+
+
 def goal_list(request):
     results = list(Player.objects.order_by('-goal').values('player_name', 'team', 'goal'))
     name1 = results[0]['player_name']
